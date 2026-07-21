@@ -1,0 +1,162 @@
+
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+/*
+  Personae UI foundation
+  Tailwind CSS v4
+
+  Put this file in:
+  src/index.css
+  or src/styles/globals.css
+
+  Then import it once in your app entry file.
+*/
+
+@theme {
+  /* Fonts */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Typography */
+  --text-display: 3rem;
+  --text-display--line-height: 3.5rem;
+  --text-display--font-weight: 700;
+
+  --text-h1: 2.5rem;
+  --text-h1--line-height: 3rem;
+  --text-h1--font-weight: 700;
+
+  --text-h2: 2rem;
+  --text-h2--line-height: 2.5rem;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 2rem;
+  --text-h3--font-weight: 600;
+
+  --text-h4: 1.25rem;
+  --text-h4--line-height: 1.75rem;
+  --text-h4--font-weight: 600;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.75rem;
+  --text-body-lg--font-weight: 400;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.5rem;
+  --text-body--font-weight: 400;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.25rem;
+  --text-small--font-weight: 400;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1rem;
+  --text-caption--font-weight: 500;
+
+  /* Studio backgrounds */
+  --color-app: #0f1115;
+  --color-sidebar: #12151b;
+  --color-panel: #181b22;
+  --color-surface: #23262f;
+  --color-surface-hover: #2b2f39;
+  --color-surface-active: #313642;
+
+  /* Text */
+  --color-primary: #f5f7fa;
+  --color-secondary: #b8bec9;
+  --color-muted: #808792;
+  --color-disabled: #555b66;
+
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+
+  /* Accent */
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-muted: rgba(59, 130, 246, 0.16);
+
+  /* Status */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #38bdf8;
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Shadows */
+  --shadow-floating: 0 16px 48px rgba(0, 0, 0, 0.32);
+  --shadow-modal: 0 24px 80px rgba(0, 0, 0, 0.48);
+}
+
+/*
+  Runtime Persona theme values.
+  Later these can be changed from React or Zustand.
+*/
+:root {
+  --persona-background: #111318;
+  --persona-surface: rgba(24, 27, 34, 0.86);
+  --persona-text: #f5f7fa;
+  --persona-text-muted: #9ca3af;
+  --persona-accent: #3b82f6;
+  --persona-border: rgba(255, 255, 255, 0.1);
+  --persona-radius: 1rem;
+  --persona-wallpaper: none;
+
+  color-scheme: dark;
+  font-family: var(--font-sans);
+  background: var(--color-app);
+  color: var(--color-primary);
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--color-border);
+}
+
+html {
+  min-width: 320px;
+  background: var(--color-app);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--color-app);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background: var(--color-accent-muted);
+  color: var(--color-primary);
+}
+
