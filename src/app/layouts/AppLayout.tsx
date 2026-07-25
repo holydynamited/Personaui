@@ -1,7 +1,7 @@
 import '@/styles/index.css'
 
 import { Outlet } from 'react-router-dom'
-import SideBar from '../../components/Sidebar'
+import SideBar from '@/components/sidebar/Sidebar'
 
 export default function AppLayout (){
     return <div className='relative overflow-hidden bg-[(--persona-background)] p-6 '>
