@@ -1,12 +1,18 @@
-import { PROFILE_TABS } from "../types/profiletabs"
-import type { ProfileTab } from "../types/profiletabs"
-
-import { useState } from "react"
+import { PROFILE_TABS } from "../../types/profiletabs"
+import type { ProfileTab } from "../../types/profiletabs"
 
 
-export default function ProfileTabs(){
 
-    const [activeTab, setActiveTab]= useState<ProfileTab>("wall")
+type Props ={
+    activeTab:ProfileTab,
+    setActiveTab:(tab:ProfileTab)=>void
+
+}
+
+
+export default function ProfileTabs({activeTab, setActiveTab}:Props){
+
+    
 
 return(
    <div className="flex ml-4">
