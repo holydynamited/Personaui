@@ -1,5 +1,4 @@
-
-type StatType = 'Posts'|'Followers'|'Following';
+import type { StatType } from "@/features/profile/types/profilestats"
 
 type Props ={
     value:number,

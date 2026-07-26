@@ -1,10 +1,11 @@
 import ButtonTransp from "@/components/buttons/ButtonTransp";
 import ProfileStats from "./ProfileStats";
+import ProfileMetaItem from "./ProfileMetaItem";
 
 import ProfileHat from "@/assets/gothic-header.jpg";
 import Avatar from "@/assets/avatar.jpg";
 
-import { MapPin, Link, Calendar } from "lucide-react";
+
 
 export default function ProfileHeader() {
   return (
@@ -35,21 +36,9 @@ export default function ProfileHeader() {
           <p className="text-body text-primary">Nothing more/...</p>
         </div>
         <div className="flex  gap-6 ">
-          <div className="flex items-center gap-2 text-muted text-small">
-            <MapPin className="size-4" />
-            <span>Munich</span>
-            
-          </div>
-          <div className="flex items-center gap-2 text-primary text-small">
-            <Link className="size-4" />
-            <a href="">/link.tree</a>
-            
-          </div>
-          <div className="flex items-center gap-2 text-muted text-small">
-            <Calendar className="size-4" />
-            <a href="">25 y.o</a>
-            
-          </div>
+        <ProfileMetaItem type = "location" value="Munich"/>
+        <ProfileMetaItem type = "link" value="/link.tree"/>
+        <ProfileMetaItem type = "age" value="25 y.o"/>
 
         </div>
       </div>
