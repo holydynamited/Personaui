@@ -1,61 +1,63 @@
+import Avatar from "@/assets/avatar.jpg";
+import {
+  Heart,
+  MessageCircle,
+  Share,
+  Bookmark,
+  MoreHorizontal,
+} from "lucide-react";
 
-import Avatar from '@/assets/avatar.jpg'
-import { Heart,MessageCircle,Share, Bookmark } from 'lucide-react'
+export default function Post() {
+  return (
+    <article className="mt-6 flex w-full flex-col gap-4 rounded-md border border-border-strong bg-sidebar p-4">
+      <header className="flex items-start gap-3">
+        <img
+          className="size-11 shrink-0 rounded-full object-cover"
+          src={Avatar}
+          alt="John's avatar"
+        />
 
-export default function Post(){
-    return(
-        <div className=" w-full  flex flex-col gap-3 mt-6 p-3 space-y-4 bg-sidebar rounded-md shrink-0 border border-border-strong ">
-          
-          <div className="flex mt-2 gap-3 px-4">
-            <img className='rounded-full size-11 shrink-0 object-cover'
-            src={Avatar}
-            alt="" 
-            />
-            <div className='flex justify-between'>
-                <div>
-            <div className='flex flex-col'> 
-                <p>John</p>
-            </div>
-            <div className='text-muted text-small   '>
-                <p>@johndoe</p>
-            </div>
-            </div>
-
-            <div className=' flex'>
-                <button>...</button>
-            </div>
-
-
-            </div>
-
-           
-
+        <div className="flex min-w-0 flex-1 items-start justify-between">
+          <div className="min-w-0">
+            <p className="text-primary">John</p>
+            <p className="text-small text-muted">@johndoe</p>
           </div>
 
-          <div className='flex px-12'>
-             <p>Today i was working on PersonaUi project</p>
-          </div>
+          <button
+            type="button"
+            className="text-muted hover:text-primary"
+            aria-label="More options"
+          >
+            <MoreHorizontal className="size-5" />
+          </button>
+        </div>
+      </header>
 
-          <div className='flex justify-between ' >
-          <div className='
-          flex gap-4 px-6
-          text-muted
-          
-           '>
-            <button><Heart/></button>
-            <button><MessageCircle/></button>
-            <button><Share/></button>
-            
-          </div>
+      <div className="pl-14">
+        <p className="text-body text-primary">
+          Today I was working on PersonaUI project
+        </p>
+      </div>
 
-          <div className='  flex gap-4 px-6
-          text-muted px-6'>
-            <button><Bookmark/></button>
+      <footer className="flex items-center justify-between pl-14">
+        <div className="flex items-center gap-4 text-muted">
+          <button type="button" aria-label="Like">
+            <Heart className="size-5" />
+          </button>
 
-          </div>
-          </div>
-         
+          <button type="button" aria-label="Comment">
+            <MessageCircle className="size-5" />
+          </button>
+
+          <button type="button" aria-label="Share">
+            <Share className="size-5" />
+          </button>
         </div>
 
-    )
+        <button type="button" className="text-muted" aria-label="Bookmark">
+          <Bookmark className="size-5" />
+        </button>
+      </footer>
+    </article>
+  );
 }
