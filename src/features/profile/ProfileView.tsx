@@ -7,7 +7,7 @@ import ProfileHeader from "./components/header/ProfileHeader"
 import ProfileTabs from "./components/tabs/ProfileTabs"
 
 import ProfileWall from "./components/wall/ProfileWall"
-import ProfilePosts from "./components/posts/PostComposer.tsx"
+import PostsFeed from "./components/posts/PostsFeed.tsx"
 import ProfileMedia from "./components/media/ProfileMedia.tsx"
 import ProfileReposts from "./components/reposts/ProfileReposts.tsx"
 
@@ -38,7 +38,7 @@ export default function ProfileView(){
             {activeTab === "wall" ? (
             <ProfileWall />
             ) : activeTab === "posts" ? (
-            <ProfilePosts />
+            <PostsFeed />
             ) : activeTab === "media" ? (
             <ProfileMedia />
             ) : (

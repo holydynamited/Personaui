@@ -22,7 +22,7 @@ export default function PostComposer(){
                 placeholder:text-muted
                 resize-none
                 "
-                type="text"
+                
                 placeholder="What's on your mind?"
             />
 
