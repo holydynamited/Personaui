@@ -11,6 +11,8 @@ import PostsFeed from "./components/posts/PostsFeed.tsx"
 import ProfileMedia from "./components/media/ProfileMedia.tsx"
 import ProfileReposts from "./components/reposts/ProfileReposts.tsx"
 
+import SideCard from "./components/sidecards/SideCard.tsx"
+
 
 
 
@@ -29,7 +31,7 @@ export default function ProfileView(){
             
                  <ProfileHeader/>
            
-           <div className="grid grid-cols-[minmax(0,1fr)_320px] gap-6 px-6 pb-6">
+           <div className="grid grid-cols-[minmax(0,1fr)_320px] gap-6 px-6 pb-6 ">
         <section className="min-w-0 mt-6 ">
         
           <ProfileTabs activeTab={activeTab} setActiveTab={handleActiveTab} />
@@ -47,8 +49,8 @@ export default function ProfileView(){
          
         </section>
 
-        <aside className="flex flex-col gap-4">
-         
+        <aside className="flex flex-col  gap-4 -mt-40">
+         <SideCard/>
         </aside>
       </div>
 
