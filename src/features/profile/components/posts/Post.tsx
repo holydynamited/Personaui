@@ -7,7 +7,12 @@ import {
   MoreHorizontal,
 } from "lucide-react";
 
-export default function Post() {
+type Props ={
+    postValue:string
+
+}
+
+export default function Post({postValue}:Props) {
   return (
     <article className="mt-6 flex w-full flex-col gap-4 rounded-md border border-border-strong bg-sidebar p-4">
       <header className="flex items-start gap-3">
@@ -35,7 +40,7 @@ export default function Post() {
 
       <div className="pl-14">
         <p className="text-body text-primary">
-          Today I was working on PersonaUI project
+          {postValue}
         </p>
       </div>
 
