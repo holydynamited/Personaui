@@ -3,8 +3,12 @@ import { useState } from "react"
 
 import type { ProfileTab } from "./types/profiletabs"
 
-import ProfileHeader from "./components/header/ProfileHeader"
+
+import ProfileHero from "./components/hero/ProfilleHero.tsx"
+import ProfileInfo from "./components/hero/ProfileInfo.tsx"
+import ProfileStats from "./components/hero/profile-stats/ProfileStats.tsx"
 import ProfileTabs from "./components/tabs/ProfileTabs"
+
 
 import ProfileWall from "./components/wall/ProfileWall"
 import PostsFeed from "./components/posts/PostsFeed.tsx"
@@ -29,12 +33,19 @@ export default function ProfileView(){
     return(
         <div className="w-full m-w-0">
             
-                 <ProfileHeader/>
+                <ProfileHero/>
            
-           <div className="grid grid-cols-[minmax(0,1fr)_320px] gap-6 px-6 pb-6 ">
+           <div className="grid grid-cols-[minmax(0,1fr)_320px]  px-6 pb-6 ">
         <section className="min-w-0 mt-6 ">
+            <ProfileInfo/>
+            <ProfileStats />
+            <div className="mt-6">
+              <ProfileTabs activeTab={activeTab} setActiveTab={handleActiveTab} />
+            </div>
+           
+
         
-          <ProfileTabs activeTab={activeTab} setActiveTab={handleActiveTab} />
+        
 
         
             {activeTab === "wall" ? (
@@ -49,7 +60,7 @@ export default function ProfileView(){
          
         </section>
 
-        <aside className="flex flex-col  gap-4 -mt-40">
+        <aside className="flex flex-col  pt-12">
          <SideCard/>
         </aside>
       </div>

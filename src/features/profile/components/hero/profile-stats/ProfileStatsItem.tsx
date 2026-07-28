@@ -6,7 +6,7 @@ type Props ={
 
 }
 
-export default function ProfileStats ({value, stat}:Props){
+export default function ProfileStatsItem ({value, stat}:Props){
     return(
         <div className="flex flex-col text-h p-2 ">
             <p className="text-h4">

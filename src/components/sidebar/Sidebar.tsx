@@ -10,7 +10,7 @@ export default function Sidebar() {
  
 
   return (
-    <aside className=" sticky top-0 shrink-0 flex justify-center w-64  min-h-screen  p-6 border-border-strong bg-sidebar border-r-2 rounded-l-2xl  ">
+    <aside className=" sticky top-0 shrink-0 flex justify-center w-64    p-6 border-border-strong bg-sidebar border-r-2 rounded-l-2xl  ">
       
       
       <nav>
