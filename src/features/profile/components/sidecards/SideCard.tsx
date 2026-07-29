@@ -1,20 +1,22 @@
+import type { SideCardType } from '../../types/side-cards/sidecard';
+import AboutCard from './cards/AboutCard';
+import LinksCard from './cards/LinksCard';
 
-export default function SideCard(){
+type Props =
+  | {
+      cardType: "about";
+      value: string;
+    }
+  | {
+      cardType: "links";
+    };
 
-    return(
-        <div className="flex flex-col justify-center min-h-40
-         text-body font-semibold text-primary gap-4
-         bg-sidebar rounded-md border p-6 border-border-strong">
+export default function SideCard(props: Props) {
+  switch (props.cardType) {
+    case "about":
+      return <AboutCard value={props.value} />;
 
-            <p className="text-body font-semibold text-primary">About</p>
-
-            
-                <p className="text-small leading-6 text-secondary"> Building PersonaUi. <br /> Collectiong moments, ideas <br /> and sounds.</p>
-          
-
-
-        </div>
-    )
-
-
+    case "links":
+      return <LinksCard />;
+  }
 }
