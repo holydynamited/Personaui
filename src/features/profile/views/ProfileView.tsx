@@ -17,11 +17,16 @@ import ProfileReposts from "../components/reposts/ProfileReposts.tsx"
 
 import SideCard from "../components/sidecards/SideCard.tsx"
 
+import { USER_MOCK } from "../types/user/usermock.ts"
+
 
 
 
 export default function ProfileView(){
 
+    const {name,lastName,username, bio,age, location, avatar, banner, stats,links} = USER_MOCK
+
+    
     const [activeTab, setActiveTab]= useState<ProfileTab>("wall")
 
     function handleActiveTab(tab:ProfileTab){
@@ -33,12 +38,12 @@ export default function ProfileView(){
     return(
         <div className="w-full min-w-0">
             
-                <ProfileHero/>
+                <ProfileHero avatar={avatar} banner={banner}/>
            
            <div className="grid grid-cols-[minmax(0,1fr)_320px]  gap-6 px-6 pb-6 ">
         <section className="min-w-0 mt-6 ">
-            <ProfileInfo/>
-            <ProfileStats />
+            <ProfileInfo name={name} lastname={lastName} username={username} bio={bio} location={location} links = {links} age={age}/>
+            <ProfileStats stats={stats}/>
             <div className="mt-6">
               <ProfileTabs activeTab={activeTab} setActiveTab={handleActiveTab} />
             </div>
@@ -62,7 +67,7 @@ export default function ProfileView(){
 
         <aside className="flex flex-col gap-4 pt-12">
          <SideCard cardType="about" value="Developer, athlete. Building PersonaUi. Blablablableblebleblebleblu"/>
-         <SideCard cardType="links"/>
+         <SideCard cardType="links" links={links}/>
         </aside>
       </div>
 

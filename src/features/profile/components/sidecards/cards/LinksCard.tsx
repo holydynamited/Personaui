@@ -1,8 +1,13 @@
 import { LINK_ICONS } from "../../../types/side-cards/linkicons";
-import { LINKS } from "../../../types/side-cards/profilelinks";
+import {  type ProfileLink } from "../../../types/side-cards/profilelinks";
 import { ChevronRight } from "lucide-react";
 
-export default function LinksCard() {
+type Props = {
+  links:ProfileLink[],
+
+}
+
+export default function LinksCard({links}:Props) {
   return (
     <div
       className="flex min-h-40 flex-col justify-center gap-4
@@ -11,7 +16,7 @@ export default function LinksCard() {
     >
           <p className="text-body font-semibold text-primary">Links</p>
 
-      {LINKS.map(({ type, link }) => {
+      {links.map(({ type, link }) => {
         const icon = LINK_ICONS[type];
 
         return (

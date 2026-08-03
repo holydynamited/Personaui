@@ -1,4 +1,5 @@
 
+import type { ProfileLink } from '../../types/side-cards/profilelinks';
 import AboutCard from './cards/AboutCard';
 import LinksCard from './cards/LinksCard';
 
@@ -9,6 +10,7 @@ type Props =
     }
   | {
       cardType: "links";
+      links: ProfileLink[];
     };
 
 export default function SideCard(props: Props) {
@@ -17,6 +19,6 @@ export default function SideCard(props: Props) {
       return <AboutCard value={props.value} />;
 
     case "links":
-      return <LinksCard />;
+      return <LinksCard links= {props.links} />;
   }
 }

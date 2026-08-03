@@ -1,19 +1,26 @@
 
-import ProfileHat from '@/assets/gothic-header.jpg'
-import Avatar from '@/assets/avatar.jpg'
+
 
 import ButtonTransp from '@/components/buttons/ButtonTransp'
 
 import { Link } from 'react-router-dom'
 
-export default function ProfileHero(){
+type Props  = {
+avatar:string,
+banner:string
+}
+
+
+
+
+export default function ProfileHero({avatar,banner}:Props){
 
 
     return <div className='relative w-full h-48"'>
 
         <img
           className=" w-full max-h-48 object-cover rounded-r-2xl"
-          src={ProfileHat}
+          src={banner}
           alt=""
         />
 
@@ -29,7 +36,7 @@ export default function ProfileHero(){
 
         <img
           className="absolute -bottom-28 left-16 size-48 rounded-full  object-cover"
-          src={Avatar}
+          src={avatar}
           alt="Profile avatar"
     />
 
