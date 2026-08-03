@@ -4,6 +4,8 @@ import Avatar from '@/assets/avatar.jpg'
 
 import ButtonTransp from '@/components/buttons/ButtonTransp'
 
+import { Link } from 'react-router-dom'
+
 export default function ProfileHero(){
 
 
@@ -16,7 +18,12 @@ export default function ProfileHero(){
         />
 
           <div className="absolute right-6 top-6 flex items-center gap-3">
-         <ButtonTransp value="Edit profile"/>
+            <Link to={"/profile/edit"}>
+            <ButtonTransp value="Edit profile"/>
+            </Link>
+         
+
+      
          <ButtonTransp value="..."/>
         </div>
 

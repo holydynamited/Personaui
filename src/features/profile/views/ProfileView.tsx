@@ -1,21 +1,21 @@
 
 import { useState } from "react"
 
-import type { ProfileTab } from "./types/profiletabs"
+import type { ProfileTab } from "../types/profiletabs.ts"
 
 
-import ProfileHero from "./components/hero/ProfileHero.tsx"
-import ProfileInfo from "./components/hero/ProfileInfo.tsx"
-import ProfileStats from "./components/hero/profile-stats/ProfileStats.tsx"
-import ProfileTabs from "./components/tabs/ProfileTabs"
+import ProfileHero from "../components/hero/ProfileHero.tsx"
+import ProfileInfo from "../components/hero/ProfileInfo.tsx"
+import ProfileStats from "../components/hero/profile-stats/ProfileStats.tsx"
+import ProfileTabs from "../components/tabs/ProfileTabs.tsx"
 
 
-import ProfileWall from "./components/wall/ProfileWall"
-import PostsFeed from "./components/posts/PostsFeed.tsx"
-import ProfileMedia from "./components/media/ProfileMedia.tsx"
-import ProfileReposts from "./components/reposts/ProfileReposts.tsx"
+import ProfileWall from "../components/wall/ProfileWall.tsx"
+import PostsFeed from "../components/posts/PostsFeed.tsx"
+import ProfileMedia from "../components/media/ProfileMedia.tsx"
+import ProfileReposts from "../components/reposts/ProfileReposts.tsx"
 
-import SideCard from "./components/sidecards/SideCard.tsx"
+import SideCard from "../components/sidecards/SideCard.tsx"
 
 
 

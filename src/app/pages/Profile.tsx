@@ -1,4 +1,4 @@
-import ProfileView from "@/features/profile/ProfileView"
+import ProfileView from "@/features/profile/views/ProfileView"
 
 export default function Profile(){
     

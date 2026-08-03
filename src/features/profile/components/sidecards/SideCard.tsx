@@ -1,4 +1,4 @@
-import type { SideCardType } from '../../types/side-cards/sidecard';
+
 import AboutCard from './cards/AboutCard';
 import LinksCard from './cards/LinksCard';
 
