@@ -1,5 +1,5 @@
-import { PROFILE_TABS } from "../../types/profiletabs"
-import type { ProfileTab } from "../../types/profiletabs"
+import { PROFILE_TABS } from "../../types/profile/profiletabs"
+import type { ProfileTab } from "../../types/profile/profiletabs"
 
 
 

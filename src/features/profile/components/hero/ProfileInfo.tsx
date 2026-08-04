@@ -15,7 +15,7 @@ type Props={
 }
 
 export default function ProfileInfo({name, lastname, username,bio,age,location,links}:Props){
-    const link = links[1].link;
+    const link = links[0]?.link ??'';
 
 
     return (
@@ -23,7 +23,7 @@ export default function ProfileInfo({name, lastname, username,bio,age,location,l
         <div>
           <p className="text-h2 font-semibold">{
             name+' '+lastname}</p>
-          <p className="text-small text-muted">{'@'+username}</p>
+          <p className="text-small text-muted">{`@${username}`}</p>
         </div>
         <div>
           <p className="text-body text-primary">{bio}</p>
@@ -31,7 +31,7 @@ export default function ProfileInfo({name, lastname, username,bio,age,location,l
         <div className="flex  gap-6 ">
         <ProfileMetaItem type = "location" value={location}/>
         <ProfileMetaItem type = "link" value={link}/>
-        <ProfileMetaItem type = "age" value={age +""+"y.o"}/>
+        <ProfileMetaItem type = "age" value={`${age} y.o`}/>
 
         </div>
       </div>

@@ -16,7 +16,7 @@ banner:string
 export default function ProfileHero({avatar,banner}:Props){
 
 
-    return <div className='relative w-full h-48"'>
+    return <div className='relative w-full h-48'>
 
         <img
           className=" w-full max-h-48 object-cover rounded-r-2xl"

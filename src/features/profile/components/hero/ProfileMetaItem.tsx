@@ -1,5 +1,5 @@
 import { MapPin,Link,Calendar, type LucideIcon } from "lucide-react";
-import type { ProfileMetaKind } from "../../types/profilemeta";
+import type { ProfileMetaKind } from "../../types/profile/profilemeta";
 
 
 type Props ={

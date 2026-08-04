@@ -1,4 +1,4 @@
-import type { StatType } from "@/features/profile/types/profilestats"
+import type { StatType } from "@/features/profile/types/profile/profilestats"
 
 type Props ={
     value:number,

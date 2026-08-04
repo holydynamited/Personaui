@@ -1,7 +1,7 @@
 
 import { useState } from "react"
 
-import type { ProfileTab } from "../types/profiletabs.ts"
+import type { ProfileTab } from "../types/profile/profiletabs.ts"
 
 
 import ProfileHero from "../components/hero/ProfileHero.tsx"
