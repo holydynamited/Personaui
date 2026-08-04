@@ -24,7 +24,7 @@ import {useState } from 'react'
        
        <EditProfileHeader/>
 
-       <div className="grid grid-cols-[minmax(0,1fr)_320px] px-8">
+       <div className="grid grid-cols-[minmax(0,1fr)_400px] px-8">
     <EditProfilePanel onTabChange={tabHandler}>
     {editTab === "basic" ? (
         <BasicInfo />

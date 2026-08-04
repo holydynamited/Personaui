@@ -9,7 +9,7 @@ export default function AppLayout() {
       <div className="flex h-full rounded-2xl border border-border-strong">
         <SideBar />
 
-        <main className="min-w-0 flex-1 overflow-y-auto">
+        <main className="min-w-0 flex-1 overflow-y-auto pb-6">
           <Outlet />
         </main>
       </div>
