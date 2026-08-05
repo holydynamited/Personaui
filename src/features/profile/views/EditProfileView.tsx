@@ -8,6 +8,8 @@ import Links from "../components/edit-profile/pages/Links"
 import Privacy from "../components/edit-profile/pages/Privacy"
 import { type tab }from '@/features/profile/types/edit-profile/editProfileTab'
 
+import { USER_MOCK } from "../types/user/usermock"
+
 import {useState } from 'react'
  
  export default function EditProfileView(){
@@ -18,7 +20,7 @@ import {useState } from 'react'
 
         setEditTab(t);
     }
-
+     const{avatar,banner}  = USER_MOCK;
  return(
     <div className="w-full min-w-0 space-y-6  ">
        
@@ -31,7 +33,7 @@ import {useState } from 'react'
     ) : editTab === "about" ? (
         <AboutYou />
     ) : editTab === "media" ? (
-        <AvatarBanner />
+        <AvatarBanner avatarSrc={avatar} bannerSrc={banner}/>
     ) : editTab === "links" ? (
         <Links />
     ) : editTab==="privacy"?(
