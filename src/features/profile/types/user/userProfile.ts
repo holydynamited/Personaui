@@ -10,6 +10,7 @@ export type UserProfile = {
   location: string;
   avatar: string;
   banner: string;
+  aboutCardInfo:string;
   stats: ProfileStats;
   links: ProfileLink[];
 };

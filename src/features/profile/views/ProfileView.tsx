@@ -66,8 +66,8 @@ export default function ProfileView(){
         </section>
 
         <aside className="flex flex-col gap-4 pt-12">
-         <SideCard cardType="about" value="Developer, athlete. Building PersonaUi. Blablablableblebleblebleblu"/>
-         <SideCard cardType="links" links={links}/>
+         <SideCard size="md" cardType="about" value="Developer, athlete. Building PersonaUi. Blablablableblebleblebleblu"/>
+         <SideCard size="md" cardType="links" links={links}/>
         </aside>
       </div>
 

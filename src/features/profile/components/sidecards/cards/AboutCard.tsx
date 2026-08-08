@@ -1,25 +1,41 @@
+import type { SideCardSize } from "../SideCard";
 
-type Props={
-    value:string
-}
+type Props = {
+  value: string;
+  size?: SideCardSize;
+  fullWidth?: boolean;
+};
 
+const sizes: Record<SideCardSize, string> = {
+  sm: "w-64 h-32 p-4",
+  md: "w-80 h-40 p-5",
+  lg: "w-96 h-48 p-6",
+};
 
-export default function AboutCard({value}:Props){
+export default function AboutCard({
+  value,
+  size = "md",
+  fullWidth = false,
+}: Props) {
+  return (
+    <div
+      className={`
+        ${sizes[size]}
+        ${fullWidth ? "!w-full" : ""}
+        flex flex-col
+        rounded-md border border-border-strong
+        bg-sidebar
+      `}
+    >
+      <p className="mb-3 text-body font-semibold text-primary">
+        About
+      </p>
 
-    return(
-        <div className="flex flex-col justify-center min-h-40
-         text-body font-semibold text-primary gap-4
-         bg-sidebar rounded-md border p-6 border-border-strong">
-
-            <p className="text-body font-semibold text-primary">About</p>
-
-            
-                <p className="text-body leading-6 text-secondary">{value}</p>
-          
-
-
-        </div>
-    )
-
-
+      <div className="min-h-0 flex-1 overflow-y-auto">
+        <p className="text-body leading-6 text-secondary">
+          {value}
+        </p>
+      </div>
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 
 
-type AvatarSize = "sm" | "md" | "lg" | "xl";
+type AvatarSize = "sm" | "md" | "lg" | "xl"|"xxl";
 
 type Props = {
   src: string;
@@ -13,7 +13,8 @@ const sizes: Record<AvatarSize, string> = {
   sm: "size-8",
   md: "size-12",
   lg: "size-20",
-  xl: "size-48",
+  xl: "size-28",
+  xxl: "size-48",
 };
 
 export default function ProfileAvatar({
