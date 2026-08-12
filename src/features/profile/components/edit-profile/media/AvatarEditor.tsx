@@ -1,10 +1,25 @@
 import Avatar from "@/components/media/ProfileAvatar";
+import { useUserStore } from "@/features/profile/store/useUserStore";
+import { useRef } from "react";
 
-type Props = {
-  avatarSrc: string;
-};
 
-export default function AvatarEditor({ avatarSrc }: Props) {
+export default function AvatarEditor() {
+
+ const avatarSrc = useUserStore(
+  (state) => state.draft?.avatar
+  ?? ""
+)
+  const setAvatar= useUserStore((state)=> state.setAvatar);
+ const inputRef = useRef<HTMLInputElement>(null);
+
+  function handleFileChange(file: File | null) {
+    if (!file) return;
+
+    const previewUrl = URL.createObjectURL(file);
+
+    setAvatar(previewUrl);
+  } 
+ 
   return (
     <div className="flex w-full flex-col gap-4">
       <div>
@@ -18,7 +33,17 @@ export default function AvatarEditor({ avatarSrc }: Props) {
         <Avatar src={avatarSrc} size="lg" />
 
         <div className="flex gap-3">
+           <input
+            ref={inputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+             onChange={(e) =>
+               handleFileChange(e.target.files?.[0] ?? null)
+            }
+          />
           <button
+          onClick={() => inputRef.current?.click()}
             type="button"
             className="
               rounded-md

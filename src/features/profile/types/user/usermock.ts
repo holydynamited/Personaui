@@ -15,7 +15,7 @@ export const USER_MOCK:UserProfile = {
 
   avatar: Avatar,
   banner: Banner,
-  aboutCardInfo:"Hiding in silience",
+  about:"Hiding in silience",
 
   stats: {
     posts: 24,

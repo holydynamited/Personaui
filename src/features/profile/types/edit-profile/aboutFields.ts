@@ -1,6 +1,6 @@
 export const ABOUT_FIELDS = [
   {
-    id: "about",
+    key: "about",
     label: "About",
     placeholder: "Tell people something about yourself...",
     type: "textarea",

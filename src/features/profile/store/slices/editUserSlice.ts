@@ -1,6 +1,7 @@
 import type { StateCreator } from "zustand";
-import type { ProfileLink } from "../side-cards/profilelinks";
-import type { UserProfile } from "../user/userProfile"
+import type { ProfileLink } from "../../types/side-cards/profilelinks";
+import type { UserProfile } from "../../types/user/userProfile"
+import type { UserStore } from "../../types/store/store";
 
 
 
@@ -22,7 +23,8 @@ type EditUserActions = {
     )=>void;
 
     removeLink:(
-        type:ProfileLink["type"]
+        type:ProfileLink["type"],
+        link:string
     )=>void;
 
     resetDraft:()=>void;
@@ -37,14 +39,14 @@ const initialState: EditUserState = {
 };
 
 export const createEditUserSlice: StateCreator<
-  EditUserSlice,
+  UserStore,
   [],
   [],
   EditUserSlice
 > = (set,get) => ({
   ...initialState,
 
-  initDraft: (user) =>
+  initDraft: () =>
     set(() => ({
     draft: { ...get().user },
   })),
@@ -106,13 +108,13 @@ export const createEditUserSlice: StateCreator<
                 : null,
             })),
 
-            removeLink:(type)=>
+            removeLink:(type,link)=>
                 set((state)=>({
                     draft:state.draft
                     ?
                     {
                     ...state.draft,
-                    links:state.draft.links.filter(item=> item.type!== type)
+                    links:state.draft.links.filter(item=> item.type!== type && item.link !== link)
                     }
                     : null
                 })),

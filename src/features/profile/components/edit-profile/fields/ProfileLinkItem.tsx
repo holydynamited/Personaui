@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import { LINK_ICONS } from "@/features/profile/types/side-cards/linkicons";
 import type { LinkType } from "@/features/profile/types/side-cards/profilelinks";
+import { useUserStore } from "@/features/profile/store/useUserStore";
 
 type Props = {
   type: LinkType;
@@ -10,11 +11,13 @@ type Props = {
 export default function ProfileLinkField({ type, value }: Props) {
   const icon = LINK_ICONS[type];
 
+  const removeLink = useUserStore((state)=>state.removeLink);
+
   return (
     <div className="flex w-full flex-col gap-2">
       <p className="text-small text-secondary">{icon.title}</p>
 
-      <div className="flex items-center gap-3 rounded-md border border-border-strong px-3 py-2">
+      <div className="flex items-center gap-3 rounded-sm border border-border-strong px-3 py-2">
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
@@ -35,6 +38,7 @@ export default function ProfileLinkField({ type, value }: Props) {
         />
 
         <button
+        onClick={()=>removeLink(type,value)}
           type="button"
           className="text-muted transition-colors hover:text-primary"
         >

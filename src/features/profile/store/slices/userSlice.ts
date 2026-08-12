@@ -1,6 +1,6 @@
 import type { StateCreator } from "zustand";
-import { USER_MOCK } from "../user/usermock";
-import { type UserProfile } from "../user/userProfile";
+import { USER_MOCK } from "../../types/user/usermock";
+import { type UserProfile } from "../../types/user/userProfile";
 
 type UserState = {
     user:UserProfile;

@@ -17,14 +17,32 @@ import ProfileReposts from "../components/reposts/ProfileReposts.tsx"
 
 import SideCard from "../components/sidecards/SideCard.tsx"
 
-import { USER_MOCK } from "../types/user/usermock.ts"
+
+import { useShallow } from "zustand/shallow"
+import { useUserStore } from "../store/useUserStore.ts"
+
+
 
 
 
 
 export default function ProfileView(){
 
-    const {name,lastName,username, bio,age, location, avatar, banner, stats,links} = USER_MOCK
+    const {name,lastName,username, bio,age, location, avatar, banner, stats,links, about} = useUserStore(
+        useShallow((state)=>({
+            name:state.user.name,
+            lastName:state.user.lastName,
+            username:state.user.username,
+            bio:state.user.bio,
+            age:state.user.age,
+            location:state.user.location,
+            avatar:state.user.avatar,
+            banner:state.user.banner,
+            about:state.user.about,
+            stats:state.user.stats,
+            links:state.user.links
+        }))
+    )
 
     
     const [activeTab, setActiveTab]= useState<ProfileTab>("wall")
@@ -66,7 +84,7 @@ export default function ProfileView(){
         </section>
 
         <aside className="flex flex-col gap-4 pt-12">
-         <SideCard size="md" cardType="about" value="Developer, athlete. Building PersonaUi. Blablablableblebleblebleblu"/>
+         <SideCard size="md" cardType="about" value={about}/>
          <SideCard size="md" cardType="links" links={links}/>
         </aside>
       </div>

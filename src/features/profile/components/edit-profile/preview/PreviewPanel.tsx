@@ -1,4 +1,6 @@
 
+import { useUserStore } from "@/features/profile/store/useUserStore";
+
 import ProfileAvatar from "@/components/media/ProfileAvatar"
 import ProfileBanner from "@/components/media/ProfileBanner"
 import ProfileMetaItem from "../../hero/ProfileMetaItem";
@@ -6,6 +8,10 @@ import ProfileMetaItem from "../../hero/ProfileMetaItem";
 import SideCard from "../../sidecards/SideCard";
 
 import type { ProfileLink } from "@/features/profile/types/side-cards/profilelinks";
+
+
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -39,8 +45,24 @@ export default function PreviewPanel(
     }
 :Props){
 
+  const user = useUserStore((state) => state.user);
+  const initDraft = useUserStore((state)=> state.initDraft)
+  const draft = useUserStore((state) => state.draft);
+  const setUser = useUserStore((state)=>state.setUser);
+
+  function saveChanges(){
+    if (!draft) return;
+    setUser(draft);
+  }
+
+const hasChanges =
+  draft !== null &&
+  JSON.stringify(user) !== JSON.stringify(draft);
+
+  const navigate = useNavigate();
+
     return(
-        <div className="flex flex-col gap-4 w-full max-h-228 overflow-hidden rounded-sm bg-sidebar border border-border-strong p-6 relative">
+        <div className="flex flex-col gap-4 w-full  overflow-hidden rounded-sm bg-sidebar border border-border-strong p-6 relative">
 
             <div>
             <p>Profile preview</p>
@@ -76,6 +98,55 @@ export default function PreviewPanel(
                 
                 </div>
               </div>
+
+              {
+                hasChanges&& (
+                <div className="flex justify-start gap-3">
+
+                  
+                    <button
+                    onClick={()=>{
+                      saveChanges();
+                      navigate("/profile")
+                    }
+                    }
+                      type="button"
+                      className="
+                        rounded-sm
+                        border border-white/30
+                        bg-accent
+                        px-4 py-2
+                        text-small font-medium 
+                        transition-colors
+                        hover:bg-accent-hover
+                      "
+                    >
+                      Save changes
+                    </button>
+
+
+                    <button
+                    onClick={()=>{
+                     initDraft();
+                    }
+                    }
+                      type="button"
+                      className="
+                        rounded-sm
+                        border border-border-strong
+                        bg-transparent
+                        px-4 py-2
+                        text-small font-medium 
+                        transition-colors
+                       
+                      "
+                    >
+                      Cancel changes
+                    </button>
+                   
+                </div>
+                )
+              }
 
             
         </div>

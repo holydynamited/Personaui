@@ -1,16 +1,21 @@
 import { MapPin } from "lucide-react";
+import type {EditProfileFieldType} from "@/features/profile/types/edit-profile/basicInfoFields"
 
-type FieldType = "input" | "textarea" | "location";
+
 
 type Props = {
   label: string;
   placeholder: string;
-  type?: FieldType;
+  type?: EditProfileFieldType;
+  value:string;
+  onChange: (value: string) => void;
 };
 
 export default function EditProfileField({
   label,placeholder,
   type = "input",
+  value,
+  onChange
 }: Props) {
   const baseClasses = `
     w-full
@@ -33,6 +38,8 @@ export default function EditProfileField({
           <textarea
             className={`${baseClasses} min-h-24 resize-none`}
             placeholder={placeholder}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
           />
         </div>
       );
@@ -51,6 +58,8 @@ export default function EditProfileField({
             <input
               className={`${baseClasses} pl-10`}
               placeholder={placeholder}
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
             />
           </div>
         </div>
@@ -64,6 +73,8 @@ export default function EditProfileField({
           <input
             className={baseClasses}
             placeholder={placeholder}
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
           />
         </div>
       );

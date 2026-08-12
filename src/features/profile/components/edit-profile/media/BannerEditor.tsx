@@ -1,10 +1,24 @@
 import Banner from "@/components/media/ProfileBanner";
+import { useUserStore } from "@/features/profile/store/useUserStore";
+import { useRef } from "react";
 
-type Props = {
-  bannerSrc: string;
-};
 
-export default function BannerEditor({ bannerSrc }: Props) {
+
+export default function BannerEditor() {
+
+  const bannerSrc = useUserStore((state)=>state.draft?.banner
+?? "")
+  const setBanner = useUserStore((state)=>state.setBanner)
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  function handleFileChange(file:File |null){
+    if (!file) return ;
+
+    const previewUrl = URL.createObjectURL(file);
+
+    setBanner(previewUrl);
+  }
+
   return (
     <div className="flex w-full flex-col gap-4">
       <div>
@@ -22,8 +36,19 @@ export default function BannerEditor({ bannerSrc }: Props) {
         />
 
         <div className="flex gap-3">
+          <input
+            ref={inputRef}
+            type="file"
+            accept="image/*"
+            className="hidden"
+             onChange={(e) =>
+               handleFileChange(e.target.files?.[0] ?? null)
+            }
+          />
+
           <button
             type="button"
+            onClick={()=> inputRef.current?.click()}
             className="
               rounded-md
               border border-border-strong

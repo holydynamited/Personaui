@@ -11,9 +11,10 @@ import PreviewPanel from "../components/edit-profile/preview/PreviewPanel"
 
 import { type tab }from '@/features/profile/types/edit-profile/editProfileTab'
 
-import { USER_MOCK } from "../types/user/usermock"
+import { useUserStore } from "../store/useUserStore"
 
-import {useState } from 'react'
+
+import {useState,useEffect } from 'react'
  
  export default function EditProfileView(){
 
@@ -23,11 +24,45 @@ import {useState } from 'react'
 
         setEditTab(t);
     }
-     const{avatar,banner, name, lastName, username, bio, age, location, links, aboutCardInfo}  = USER_MOCK;
- return(
+
+
+            const draft = useUserStore((state) => state.draft);
+            const initDraft = useUserStore((state) => state.initDraft);
+
+            useEffect(() => {
+            if (!draft) {
+                initDraft();
+            }
+            }, [draft, initDraft]);
+
+            if (!draft) return null;
+
+            const {
+            avatar,
+            banner,
+            name,
+            lastName,
+            username,
+            bio,
+            age,
+            location,
+            links,
+            about,
+            } = draft;
+
+        return(
     <div className="w-full min-w-0 space-y-6  ">
        
        <EditProfileHeader/>
+
+          <div className="w-full min-w-0 px-8 space-y-2">
+        <h2 className="text-h3">
+            Edit profile
+        </h2>
+        <p className="text-muted">
+            Manage your public information and how others see you.
+        </p>
+     </div>
 
        <div className="grid grid-cols-[minmax(0,1fr)_400px] px-8 gap-6">
     <EditProfilePanel onTabChange={tabHandler}>
@@ -36,7 +71,7 @@ import {useState } from 'react'
     ) : editTab === "about" ? (
         <AboutYou />
     ) : editTab === "media" ? (
-        <AvatarBanner avatarSrc={avatar} bannerSrc={banner}/>
+        <AvatarBanner />
     ) : editTab === "links" ? (
         <Links />
     ) : editTab==="privacy"?(
@@ -55,7 +90,7 @@ import {useState } from 'react'
         age={age} 
         location={location} 
         links={links} 
-        aboutCardInfo={aboutCardInfo}
+        aboutCardInfo={about}
         />
        </div>
        </div>
