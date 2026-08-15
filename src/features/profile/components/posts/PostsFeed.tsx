@@ -1,22 +1,34 @@
 
+import { useUserStore } from "../../store/useUserStore";
 import Post from "./Post";
 import PostComposer from "./PostComposer";
+
+
+import { USER_MOCK } from "../../types/user/usermock";
 
 
 
 export default function PostsFeed(){
 
+    const user = useUserStore((state) => state.user);
+    const posts = USER_MOCK.posts;
+
+    if (!user) return null;
+    const {avatar, username,name} = user; 
+
+
     return(
         <div>
-                <PostComposer/>
+                <PostComposer avatarSrc={avatar}/>
                 <div>
-                    <Post postValue="Hi everybody! I've starded working on PersonaUi project. Wish me some luck! "/>
-                     <Post postValue="I hate my life "/>
-                      <Post postValue="Skibididopdopyesyes"/>
-                       <Post postValue="Skibididopdopyesyes"/>
+                   {
+                    posts.map((p)=>(
+                        <Post key={p.id} avatarSrc={avatar} username={username} name= {name} postValue={p.content}/>
+                    ))
+                   }
                 </div>
                 
 
         </div>
     )
-}
+} 

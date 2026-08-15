@@ -1,15 +1,20 @@
-import Avatar from '@/assets/avatar.jpg'
+
 
 import { Image,ImagePlay, TextWrap,Smile } from 'lucide-react'
 
-export default function PostComposer(){
+
+type Props = {
+  avatarSrc :string;
+}
+
+export default function PostComposer({avatarSrc}:Props){
     return (
     
         <div className=" w-full  flex flex-col gap-3 mt-6 p-3 bg-sidebar rounded-md shrink-0 border border-border-strong ">
           
           <div className="flex mt-2 gap-3 px-4">
             <img className='rounded-full size-11 shrink-0 object-cover'
-            src={Avatar}
+            src={avatarSrc}
             alt="" 
             />
 

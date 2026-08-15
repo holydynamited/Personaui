@@ -1,7 +1,7 @@
 
 import { type UserProfile } from "./userProfile";
-import Avatar from "@/assets/avatar.jpg";
-import Banner from "@/assets/gothic-header.jpg";
+import Avatar from "@/assets/def-avatar.png";
+import Banner from "@/assets/def-banner.png";
 
 
 
@@ -45,4 +45,21 @@ export const USER_MOCK:UserProfile = {
       link: "https://open.spotify.com",
     },
   ],
+
+  posts: [
+  {
+    id: "post-1",
+    content: "Hi everybody! I've started working on Personaui. Wish me luck!",
+    createdAt: "2026-08-15T12:00:00Z",
+    likes: 12,
+    comments: 3,
+  },
+  {
+    id: "post-2",
+    content: "Building this thing piece by piece.",
+    createdAt: "2026-08-14T18:30:00Z",
+    likes: 7,
+    comments: 1,
+  },
+],
 };

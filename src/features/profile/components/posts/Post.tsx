@@ -1,4 +1,4 @@
-import Avatar from "@/assets/avatar.jpg";
+
 import {
   Heart,
   MessageCircle,
@@ -8,24 +8,27 @@ import {
 } from "lucide-react";
 
 type Props ={
-    postValue:string
+    postValue:string;
+    avatarSrc:string;
+    username:string;
+    name:string;
 
 }
 
-export default function Post({postValue}:Props) {
+export default function Post({postValue, avatarSrc, username, name}:Props) {
   return (
     <article className="mt-6 flex w-full flex-col gap-4 rounded-md border border-border-strong bg-sidebar p-4">
       <header className="flex items-start gap-3">
         <img
           className="size-11 shrink-0 rounded-full object-cover"
-          src={Avatar}
+          src={avatarSrc}
           alt="John's avatar"
         />
 
         <div className="flex min-w-0 flex-1 items-start justify-between">
           <div className="min-w-0">
-            <p className="text-primary">John</p>
-            <p className="text-small text-muted">@johndoe</p>
+            <p className="text-primary">{name}</p>
+            <p className="text-small text-muted">{'@'+username}</p>
           </div>
 
           <button

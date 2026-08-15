@@ -1,4 +1,4 @@
-import EditProfileHeader from "../components/edit-profile/EditProfileHeader"
+import EditProfileHeader from "../components/edit-profile/components/EditProfileHeader"
 import EditProfilePanel from "../components/edit-profile/EditProfilePanel"
 
 import AboutYou from "../components/edit-profile/pages/AbouYou"

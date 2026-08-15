@@ -2,6 +2,8 @@ import Avatar from "@/components/media/ProfileAvatar";
 import { useUserStore } from "@/features/profile/store/useUserStore";
 import { useRef } from "react";
 
+import { DEFAULT_AVATAR } from "@/features/profile/constants/profileDefaults";
+
 
 export default function AvatarEditor() {
 
@@ -19,6 +21,11 @@ export default function AvatarEditor() {
 
     setAvatar(previewUrl);
   } 
+
+  function removeAvatar(){
+    if(avatarSrc===DEFAULT_AVATAR) return;
+    setAvatar(DEFAULT_AVATAR);
+  }
  
   return (
     <div className="flex w-full flex-col gap-4">
@@ -58,6 +65,7 @@ export default function AvatarEditor() {
           </button>
 
           <button
+          onClick={removeAvatar}
             type="button"
             className="
               rounded-md

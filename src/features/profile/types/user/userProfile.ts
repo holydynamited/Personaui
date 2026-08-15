@@ -1,5 +1,6 @@
 import type { ProfileLink } from "../side-cards/profilelinks";
 import type { ProfileStats } from "./profileStats";
+import type { UserPost } from "./userPost";
 
 export type UserProfile = {
   name: string;
@@ -13,4 +14,5 @@ export type UserProfile = {
   about:string;
   stats: ProfileStats;
   links: ProfileLink[];
+  posts:UserPost[]
 };

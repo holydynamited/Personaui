@@ -2,7 +2,7 @@ import Banner from "@/components/media/ProfileBanner";
 import { useUserStore } from "@/features/profile/store/useUserStore";
 import { useRef } from "react";
 
-
+import { DEFAULT_BANNER } from "@/features/profile/constants/profileDefaults";
 
 export default function BannerEditor() {
 
@@ -11,12 +11,20 @@ export default function BannerEditor() {
   const setBanner = useUserStore((state)=>state.setBanner)
   const inputRef = useRef<HTMLInputElement>(null);
 
+ 
+
   function handleFileChange(file:File |null){
     if (!file) return ;
 
     const previewUrl = URL.createObjectURL(file);
 
     setBanner(previewUrl);
+  }
+
+  function removeBanner(){
+    if(bannerSrc===DEFAULT_BANNER) return;
+
+    setBanner(DEFAULT_BANNER);
   }
 
   return (
@@ -63,6 +71,7 @@ export default function BannerEditor() {
 
           <button
             type="button"
+            onClick={removeBanner}
             className="
               rounded-md
               px-4 py-2
