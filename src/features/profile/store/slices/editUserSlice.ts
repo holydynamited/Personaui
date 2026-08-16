@@ -114,7 +114,7 @@ export const createEditUserSlice: StateCreator<
                     ?
                     {
                     ...state.draft,
-                    links:state.draft.links.filter(item=> item.type!== type && item.link !== link)
+                    links:state.draft.links.filter!(item=> item.type=== type && item.link === link)
                     }
                     : null
                 })),

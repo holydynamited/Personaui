@@ -4,14 +4,13 @@ import Post from "./Post";
 import PostComposer from "./PostComposer";
 
 
-import { USER_MOCK } from "../../types/user/usermock";
 
 
 
 export default function PostsFeed(){
 
     const user = useUserStore((state) => state.user);
-    const posts = USER_MOCK.posts;
+    const posts = user.posts;
 
     if (!user) return null;
     const {avatar, username,name} = user; 
