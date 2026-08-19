@@ -22,7 +22,7 @@ export default function PostsFeed(){
                 <div>
                    {
                     posts.toReversed().map((p)=>(
-                        <Post key={p.id} avatarSrc={avatar} username={username} name= {name} postValue={p.content}/>
+                        <Post key={p.id} id={p.id} avatarSrc={avatar} username={username} name= {name} postValue={p.content}/>
                     ))
                    }
                 </div>
