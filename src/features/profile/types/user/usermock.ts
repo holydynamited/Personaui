@@ -6,6 +6,7 @@ import Banner from "@/assets/def-banner.png";
 
 
 export const USER_MOCK:UserProfile = {
+  id:"1",
   name: "John",
   lastName: "Doe",
   username: "johndoe",
@@ -48,18 +49,19 @@ export const USER_MOCK:UserProfile = {
 
   posts: [
   {
+
     id: "post-1",
+    profile_id:"1",
     content: "Hi everybody! I've started working on Personaui. Wish me luck!",
-    createdAt: "2026-08-15T12:00:00Z",
-    likes: 12,
-    comments: 3,
+    created_at: "2026-08-15T12:00:00Z",
+    
   },
   {
     id: "post-2",
+    profile_id:"1",
     content: "Building this thing piece by piece.",
-    createdAt: "2026-08-14T18:30:00Z",
-    likes: 7,
-    comments: 1,
+    created_at: "2026-08-14T18:30:00Z",
+  
   },
 ],
 };

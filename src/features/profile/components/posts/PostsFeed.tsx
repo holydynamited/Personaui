@@ -10,7 +10,7 @@ import PostComposer from "./PostComposer";
 export default function PostsFeed(){
 
     const user = useUserStore((state) => state.user);
-    const posts = user.posts;
+    const posts = useUserStore((state)=>state.posts)
 
     if (!user) return null;
     const {avatar, username,name} = user; 
@@ -21,7 +21,7 @@ export default function PostsFeed(){
                 <PostComposer avatarSrc={avatar}/>
                 <div>
                    {
-                    posts.map((p)=>(
+                    posts.toReversed().map((p)=>(
                         <Post key={p.id} avatarSrc={avatar} username={username} name= {name} postValue={p.content}/>
                     ))
                    }

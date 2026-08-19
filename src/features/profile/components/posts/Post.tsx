@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 type Props ={
-    postValue:string;
+    postValue?:string;
     avatarSrc:string;
     username:string;
     name:string;
